@@ -1,7 +1,6 @@
 package com.green.evalBbs.controller;
 
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,5 +37,10 @@ public class EvalBbsController {
 	public String detail(@RequestParam("bno") String bno, Model model) {
 		model.addAttribute("dto", dao.detail(bno));
 		return "detail";
+	}
+	@RequestMapping("/delete")
+	public String delete(@RequestParam("bno") String bno) {
+		dao.delete(bno);
+		return "redirect:list";
 	}
 }

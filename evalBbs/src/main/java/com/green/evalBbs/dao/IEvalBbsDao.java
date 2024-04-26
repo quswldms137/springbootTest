@@ -11,11 +11,10 @@ import com.green.evalBbs.dto.EvalBbsDto;
 public interface IEvalBbsDao {
 	public List<EvalBbsDto> getList();
 
+	public EvalBbsDto detail(@Param("bno") String bno);
+	
 	public void write(@Param("dto") EvalBbsDto dto);
 
-	public EvalBbsDto detail(@Param("bno") String bno);
+	public void delete(@Param("bno") String bno);
 
-	
-	
-	
 }
