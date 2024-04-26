@@ -8,7 +8,13 @@
 	SELECT * FROM evalbbs
   </select>
   
+  <select id="detail">
+	SELECT * FROM evalbbs WHERE bno= #{bno}
+  </select>
+  
   <insert id="write">
 	INSERT INTO evalbbs (title, content, writer, regdate) VALUES (#{dto.title}, #{dto.content}, #{dto.writer}, #{dto.regdate})
   </insert>
+  
+  
 </mapper>

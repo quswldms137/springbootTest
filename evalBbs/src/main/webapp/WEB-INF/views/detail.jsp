@@ -10,9 +10,24 @@
 <body>
     <h1>detail Page</h1>
     <hr>
-    ${dto.id} / ${dto.writer} / ${dto.title} / ${dto.content}
-
-    <a href="delete?id=${dto.id}">삭제</a>
+    <div>
+        <table border="1">
+            <tr>
+                <th>bno</th><th>title</th><th>content</th><th>writer</th><th>regdate</th>
+            </tr>
+            <c:forEach var="dto" items="${list}">
+            <tr>
+                <td>${dto.bno}</td>
+                <td>${dto.title}</td>
+                <td>${dto.content}</td>
+                <td>${dto.writer}</td>
+                <td>${dto.regdate}</td>
+                <td><a href="delete?bno=${dto.bno}">삭제</a></td>
+            </tr>
+            </c:forEach>
+        </table>
+    </div>
+    
     <a href="list">목록보기</a>
 </body>
 </html>    

@@ -1,10 +1,12 @@
 package com.green.evalBbs.controller;
 
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.green.evalBbs.dao.IEvalBbsDao;
 import com.green.evalBbs.dto.EvalBbsDto;
@@ -31,5 +33,10 @@ public class EvalBbsController {
 	public String write(EvalBbsDto dto) {
 		dao.write(dto);
 		return "redirect:list";
+	}
+	@RequestMapping("detail")
+	public String detail(@RequestParam("bno") String bno, Model model) {
+		model.addAttribute("dto", dao.detail(bno));
+		return "detail";
 	}
 }
